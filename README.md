@@ -1,7 +1,12 @@
 # Smart PMO Copilot (Frontend Demo)
 
+![React](https://img.shields.io/badge/React-18-blue)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-teal)
+![Recharts](https://img.shields.io/badge/Recharts-visualization-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 Smart PMO Copilot is an **AI-powered Project Management & Risk Monitoring Dashboard** built with **React + TailwindCSS + Recharts**.  
-It provides insights into project health, risks, sprints, and compliance — helping PMOs and engineering leaders make faster, better decisions.
+It provides insights into project health, risks, sprint timelines, and compliance — helping PMOs and engineering leaders make faster, better decisions.
 
 ---
 
@@ -10,6 +15,21 @@ It provides insights into project health, risks, sprints, and compliance — hel
 - 📂 **Projects Page** → AI-generated project summaries, completion %, milestones, risk scores.
 - 📤 **Export Options** → Export dashboard as PPT or PDF.
 - 🎨 **Modern UI** → Built with TailwindCSS + responsive layout.
+
+---
+
+## 📍 Roadmap
+- [ ] Add Risks & Compliance pages  
+- [ ] AI Copilot (Chat-based project insights)  
+- [ ] Backend API with FastAPI/Node.js  
+- [ ] Database persistence with PostgreSQL  
+- [ ] Role-based authentication  
+
+---
+
+## 🤝 Contribution
+Contributions, issues, and feature requests are welcome!  
+Feel free to fork this repo and submit pull requests.
 
 ---
 
