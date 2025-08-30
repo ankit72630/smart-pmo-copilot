@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* soften heatmap colors */
+.react-calendar-heatmap .bg-gray-100 { background-color: #f3f4f6; }
+.react-calendar-heatmap .bg-red-200  { background-color: #fecaca; }
+.react-calendar-heatmap .bg-red-400  { background-color: #f87171; }
+.react-calendar-heatmap .bg-red-600  { background-color: #dc2626; }
+
+/* equal-height rows */
+.card-row > * { height: 100%; }
+
+/* hover + focus states */
+.card:hover { @apply shadow-xl; }
+.card:focus { @apply ring-2 ring-primary; }
+/* Make the month labels fully opaque and slightly smaller */
+.react-calendar-heatmap .react-calendar-heatmap-month-label {
+  opacity: 1 !important;
+  fill-opacity: 1 !important;
+  font-size: 0.75rem;
+  font-weight: 500;
+  fill: #6b7280; /* Tailwind gray-500 */
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Typing dots */
+.typing-dot {
+  height: 6px;
+  width: 6px;
+  background-color: #6366f1;
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1.3s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
