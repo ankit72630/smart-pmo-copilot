@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import {
   FaRobot,
   FaUser,
@@ -6,13 +7,13 @@ import {
   FaChartBar,
   FaListUl,
   FaFileAlt,
-  FaDownload,
   FaFilePdf,
   FaFileExcel,
 } from "react-icons/fa";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+
 export default function ChatPage() {
   const [messages, setMessages] = useState([
     {
@@ -25,6 +26,12 @@ export default function ChatPage() {
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const messagesEndRef = useRef(null);
+
+  // ✅ Read query params for project context
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const projectName = query.get("project");
+  const projectSummary = query.get("summary");
 
   const suggestions = [
     { text: "Show risk heatmap", icon: <FaChartBar /> },
@@ -115,18 +122,17 @@ export default function ChatPage() {
 
   // PDF Export
   const exportPDF = (data, title = "Report") => {
-  const doc = new jsPDF();
-  doc.text(title, 14, 16);
+    const doc = new jsPDF();
+    doc.text(title, 14, 16);
 
-  autoTable(doc, {
-    head: [Object.keys(data[0])],
-    body: data.map((row) => Object.values(row)),
-    startY: 20,
-  });
+    autoTable(doc, {
+      head: [Object.keys(data[0])],
+      body: data.map((row) => Object.values(row)),
+      startY: 20,
+    });
 
-  doc.save(`${title}.pdf`);
-};
-
+    doc.save(`${title}.pdf`);
+  };
 
   // Auto-scroll
   useEffect(() => {
@@ -141,6 +147,11 @@ export default function ChatPage() {
       <div className="text-center py-2 border-b bg-gray-50 text-gray-600 text-sm font-medium shadow-sm">
         <FaRobot className="inline mr-2 text-gray-500" />
         Ask AI <span className="ml-2 text-green-500">● Online</span>
+        {projectName && (
+          <div className="mt-2 p-2 bg-blue-50 border border-blue-200 rounded text-sm">
+            📝 Chatting about <b>{projectName}</b> – {projectSummary}
+          </div>
+        )}
       </div>
 
       {/* Chat Area */}
@@ -153,7 +164,6 @@ export default function ChatPage() {
             }`}
           >
             {msg.sender === "ai" && <FaRobot className="text-gray-500 w-5 h-5" />}
-
             <div
               className={`px-4 py-3 rounded-3xl max-w-[75%] text-sm shadow relative ${
                 msg.sender === "user"
@@ -161,10 +171,7 @@ export default function ChatPage() {
                   : "bg-white border text-gray-800 rounded-bl-none"
               }`}
             >
-              {/* Text */}
               {msg.type === "text" && <div>{msg.text}</div>}
-
-              {/* Chart */}
               {msg.type === "chart" && (
                 <div>
                   <div className="mb-2">{msg.text}</div>
@@ -178,8 +185,6 @@ export default function ChatPage() {
                   </ResponsiveContainer>
                 </div>
               )}
-
-              {/* Table */}
               {msg.type === "table" && (
                 <div>
                   <div className="mb-2 font-medium">{msg.text}</div>
@@ -203,8 +208,6 @@ export default function ChatPage() {
                       </tbody>
                     </table>
                   </div>
-
-                  {/* Export Buttons */}
                   <div className="flex gap-2 mt-2 text-xs">
                     <button
                       onClick={() => exportCSV(msg.data, "compliance_report.csv")}
@@ -221,18 +224,11 @@ export default function ChatPage() {
                   </div>
                 </div>
               )}
-
-              {/* Timestamp */}
-              <div className="text-[9px] text-gray-400 mt-1 text-right">
-                {msg.time}
-              </div>
+              <div className="text-[9px] text-gray-400 mt-1 text-right">{msg.time}</div>
             </div>
-
             {msg.sender === "user" && <FaUser className="text-gray-400 w-5 h-5" />}
           </div>
         ))}
-
-        {/* Typing Indicator */}
         {typing && (
           <div className="flex items-center gap-2 animate-fade-in">
             <FaRobot className="text-gray-500 w-5 h-5" />
@@ -243,7 +239,6 @@ export default function ChatPage() {
             </div>
           </div>
         )}
-
         <div ref={messagesEndRef} />
       </div>
 

@@ -3,16 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import DashboardMockup from "./pages/DashboardMockup";
  import ProjectsPage from "./pages/ProjectsPage";
+ import IntegrationsPage from "./pages/IntegrationsPage";
 import ChatPage from "./pages/ChatPage";
-/*import RisksPage from "./pages/RisksPage";
-import CompliancePage from "./pages/CompliancePage";
-import BriefingsPage from "./pages/BriefingsPage";
-import IntegrationsPage from "./pages/IntegrationsPage";
-import CommandsPage from "./pages/CommandsPage";
-import InboxPage from "./pages/InboxPage";
-import ExportPage from "./pages/ExportPage";
-import PDFPage from "./pages/PDFPage";
-import NotFound from "./pages/NotFound"; */
+import InsightsPage from "./pages/InsightsPage";
+
+
+
 
 export default function App() {
   return (
@@ -23,17 +19,10 @@ export default function App() {
           {/* index → Dashboard */}
           <Route index element={<DashboardMockup />} />
            <Route path="projects" element={<ProjectsPage />} />
+           <Route path="integrations" element={<IntegrationsPage />} />
             <Route path="chat" element={<ChatPage />} />
-          {/*<Route path="risks" element={<RisksPage />} />
-          <Route path="compliance" element={<CompliancePage />} />
-          <Route path="briefings" element={<BriefingsPage />} />
-          <Route path="integrations" element={<IntegrationsPage />} />
-          <Route path="commands" element={<CommandsPage />} />
-          <Route path="inbox" element={<InboxPage />} />
-          <Route path="export" element={<ExportPage />} />
-          <Route path="pdf" element={<PDFPage />} /> */}
-          {/* 404 */}
-          {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="insights" element={<InsightsPage />} />
+          
         </Route>
       </Routes>
     </BrowserRouter>

@@ -4,10 +4,8 @@ import { NavLink } from "react-router-dom";
 import {
   FiHome,
   FiFolder,
-  FiAlertTriangle,
-  FiShield,
-  FiFileText,
   FiLayers,
+  FiBarChart2,
   FiMessageCircle,
   FiX,
   FiMenu,
@@ -16,11 +14,10 @@ import {
 const items = [
   { to: "/", label: "Dashboard", icon: <FiHome /> },
   { to: "/projects", label: "Projects", icon: <FiFolder /> },
-  { to: "/risks", label: "Risks", icon: <FiAlertTriangle /> },
-  { to: "/compliance", label: "Compliance", icon: <FiShield /> },
-  { to: "/briefings", label: "Briefings", icon: <FiFileText /> },
+  { to: "/insights", label: "Insights", icon: <FiBarChart2  /> },
   { to: "/integrations", label: "Integrations", icon: <FiLayers /> },
   { to: "/chat", label: "Ask AI", icon: <FiMessageCircle /> },
+
 ];
 
 export default function Sidebar({ collapsed, setCollapsed }) {
