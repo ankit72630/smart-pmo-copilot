@@ -17,10 +17,12 @@ It helps **Project Managers, PMOs, and Engineering Leaders** with:
 ## ✨ Features (Current Version)
 
 - 📊 **Dashboard** → Task status, sprint timeline, project health gauge, risk heatmap, SLA breaches, forecast alerts.  
-- 📂 **Projects Page** → AI summaries, completion %, milestones, risk scores.  
+- 📂 **Projects Page** → AI summaries, completion %, milestones, risk scores, Gantt charts, recommendations.  
 - 💬 **Ask AI Chat** → Conversational AI assistant for queries (risks, blockers, reports).  
+- 🔗 **Integrations** → Mock connections for Jira, Trello, Asana, Azure DevOps.  
+- 📑 **Insights Page** → Combined **Risks**, **Compliance**, and **Executive Briefings** with AI-powered recommendations.  
 - 📑 **Export Options** → Export dashboards & chat insights as **PPT** or **PDF**.  
-- 🎨 **Modern UI** → Responsive TailwindCSS layout, mobile-first friendly.  
+- 🎨 **Modern UI** → Responsive TailwindCSS layout, mobile + desktop ready.  
 
 ---
 
@@ -35,20 +37,25 @@ It helps **Project Managers, PMOs, and Engineering Leaders** with:
 ### Chat (Ask AI)  
 ![Chat](docs/chat.png)  
 
+### Insights  
+![Insights](docs/insights.png)  
+
+### Integrations  
+![Integrations](docs/integrations.png)  
+
 ---
 
 ## 🛣 Roadmap (Next Steps for SaaS)
 
-- [ ] 📱 **Fix Mobile Responsiveness** → perfect mobile UI.  
-- [ ] 🔗 **Integrations** → Jira, Trello, Asana, Azure DevOps.  
-- [ ] 🔑 **Authentication** → JWT/OAuth2 (ready-to-use SaaS).  
-- [ ] 🏢 **Multi-Tenant Support** → multiple organizations, roles (Admin, PM, Analyst).  
-- [ ] 🤖 **AI Features** →  
+- [x] 📱 **Step 1: Mobile Responsive UI & Pages (DONE)**  
+- [ ] 🔗 **Step 2: Authentication (JWT/OAuth2)**  
+- [ ] 🏢 **Step 3: Multi-Tenant Support** (multiple orgs, roles: Admin, PM, Analyst).  
+- [ ] 🤖 **Step 4: AI Features** →  
    - Risk prediction  
    - Sprint summaries  
    - Automated compliance checks  
    - Auto-email notifications  
-- [ ] ☁️ **Deployment Ready** → Docker + CI/CD + Vercel/Netlify builds.  
+- [ ] ☁️ **Step 5: Deployment Ready** → Docker + CI/CD + Vercel/Netlify builds.  
 
 ---
 
@@ -82,7 +89,7 @@ npm install
 npm start
 ```
 
-👉 App runs at **http://localhost:3000**
+👉 App runs at [http://localhost:3000](http://localhost:3000)  
 
 ---
 
@@ -100,19 +107,19 @@ Contributions, issues, and feature requests are welcome! 🎉
 
 ## 📦 Deployment  
 
-You can deploy easily with [Vercel](https://vercel.com) or [Netlify](https://www.netlify.com/).  
+You can deploy easily with **Vercel** or **Netlify**.  
 
-### Deploy to Vercel
+**Deploy to Vercel**  
 ```bash
 npm run build
 vercel deploy
-```
+```  
 
-### Deploy to Netlify
+**Deploy to Netlify**  
 ```bash
 npm run build
 netlify deploy
-```
+```  
 
 ---
 
@@ -124,12 +131,7 @@ This project is licensed under the **MIT License** — free for personal & comme
 
 ## 💡 Why This Project is Valuable  
 
-- 💼 Ready-to-use **PMO Dashboard** (managers love it).  
-- 🎯 Built with **modern stack** (React, Tailwind, Recharts).  
-- 📑 **Export-ready** → buyers see immediate value in reporting.  
-- ⚡ Can be **extended to SaaS** with minimal backend additions.  
-
----
-
-🚀 **Smart PMO Copilot = AI-powered Jira/Trello for PMOs**  
-Perfect base to **sell as SaaS** or showcase in your portfolio.  
+💼 Ready-to-use **PMO Dashboard** (managers love it).  
+🎯 Built with modern stack (React, Tailwind, Recharts).  
+📑 Export-ready → buyers see immediate value in reporting.  
+⚡ Can be extended to SaaS with minimal backend additions.  
